@@ -30,43 +30,48 @@ But as I was reading his thread, I couldn't help but think:
 
 > "man...if only he knew about Quarto"
 
-[Quarto](https://quarto.org/) brands itself as "an open-source scientific and technical publishing system," but it is so, so much more than that. Quarto is funamentally an abstraction layer that separates _content_ from _format_. It produces documents that are always current, always flexible, and (as I'll argue in this post) exceptionally good for working with LLMs.
+[Quarto](https://quarto.org/) brands itself as "an open-source scientific and technical publishing system," but it is so, so much more than that. In my opinion, it is much more helpful to **think of Quarto as an abstraction layer that separates _content_ from _format_**. It produces documents that are always current, always flexible, and (as I'll argue in this post) exceptionally good for working with LLMs.
 
 Just like Thariq does in his post about HTML, I'll focus this post on some of the reasons why adding a "q" in front of "md" is my preferred approach for working with LLM outputs.
 
 ## Rich output through code
 
-Thariq's central argument is about _information density_. HTML can render styled tables, SVG diagrams, interactive charts, and color-coded content — things that flat Markdown simply cannot do. That is all true.
+Thariq's central argument is about _information density_. HTML can render styled tables, SVG diagrams, interactive charts, and color-coded content — things that plain markdown simply cannot do. This is all true.
 
-But Quarto docs can produce all of that through code. Drop an R or Python block into a .qmd file and you get an interactive plotly chart, a beautifully formatted table, a ggplot visualization with your exact color palette. The output is just as rich as anything HTML can show, but the difference is that the source file stays readable. Any user can directly read the markdown content inside the .qmd file, and of course can choose to render it into a desired output to read it in a preferred form.
+But Quarto docs can produce all of the above through code. Drop an R or Python code chunk into a .qmd file and you get an interactive plotly chart, a beautifully formatted table, a ggplot chart with your exact color palette. The output is just as rich as anything HTML can make, but the difference is that the _source file stays readable_. Any user can directly read the markdown content inside the .qmd file, and of course they can also choose to render it into a desired output to read it in a preferred form.
 
-And there's a second advantage that goes beyond visual richness: **a .qmd document stays current**. An HTML document is a snapshot. Once Claude writes those numbers into the markup, they are frozen. If the data changes, you have to ask Claude to re-generate the HTML again, or you have to edit the HTML by hand 😱. 
+But there's a second (and imo more important) advantage that goes beyond visual richness: **a .qmd document stays current**. An HTML document is a snapshot. Once Claude writes numbers into the markup, they are frozen. If the data changes, you have to ask Claude to re-generate the HTML again, or you have to edit the HTML by hand 😱. 
 
-A .qmd file runs code at render time. Just point it at the updated CSV, run `quarto render`, and the tables and charts update automatically.
+In contrast, a .qmd file runs code at render time. Just point it at the updated CSV, run `quarto render`, and the tables and charts update automatically.
 
 ## One source, any format
 
 ![](its-all-markdown.jpg){fig-align="center" width="100%"}
 
-HTML is one output format. If the report you made for yourself turns out to be something your boss wants as a Word document, you are either asking Claude again or doing an imperfect copy-paste.
+HTML is great, but it's only one output format, and most of the time it's not the format that other stakeholders want to see. If the report you made for yourself turns out to be something your boss wants as a Word document, you are either asking Claude again to create the doc or doing an imperfect copy-paste into Word.
 
-A .qmd file renders to HTML, PDF, Word, or a RevealJS presentation. Rather than spending time or tokens on the output format, you can focus on the output _content_, leaving the formatting to Quarto. If you need to make a change, just modify the YAML header and run `quarto render`. The content stays exactly the same, only the output format changes. 
+A .qmd file renders to HTML, PDF, Word, or a RevealJS presentation. Rather than spending time or tokens on the output format, you can focus on the output _content_, leaving the formatting to Quarto. If you need to make a change, just modify the YAML header and run `quarto render`. The content stays exactly the same, only the output format changes.
 
-What's even better is that most LLMs and agents like Claude code understand Quarto syntax very, very well, so you don't even really have to think too much about what specific changes in the YAML header you need to make. Just tell CC "I'd like this as a pdf" and it'll update the yaml. That is _way_ easier (and _way_ faster) than having CC re-generate an entire new output.
+What's even better is that most LLMs and agents like Claude code understand Quarto syntax very, very well, so you don't even really have to think too much about what specific changes in the YAML header you need to make. Just tell CC "I'd like this as a pdf" and it'll update the yaml (and anything else that needs to change in the markdown). That is _way_ easier (and _way_ faster) than having CC re-generate an entire new output.
 
 To me, this is the right division of labor: **Claude writes the content, Quarto handles the format**
 
 ## Token efficiency
 
-When you ask Claude to produce a format directly (HTML, PDF, Word, etc.) you pay for all the boilerplate that format requires. HTML needs a full document structure with a `<head>` and embedded CSS. LaTeX needs `\documentclass` declarations and everything wrapped in `\begin{document}`. Office Open XML (the format inside a `.docx` file) is hundreds of lines of namespace-laden markup just to hold a few paragraphs. These things add up.
+::: {.callout-note title = 'TLDR'}
+Generating Quarto qmd files requires _way_ fewer tokens to produce a wide variety of outputs compared to asking agents like Claude code to generate them directly
+:::
 
-With .qmd, you always pay for the same thing: clean Markdown plus a few lines of YAML. Whether you are targeting HTML, PDF, or Word, the source file looks almost identical — and so does the token count.
 
-To put numbers on this, I ran the same prompt through Claude 8 times, each time asking for a different output format. The prompt asked for a summary report on EV charging standards (CCS, CHAdeMO, and NACS) with an introduction, comparison table, pros/cons section, and conclusion (I study the EV market, so this is what I came up with). The example is rich enough to surface real formating overhead costs.
+When you ask Claude to produce a format directly (HTML, PDF, Word, etc.) you pay for all the boilerplate that format requires. HTML needs a full document structure with a `<head>` and embedded CSS. LaTeX needs `\documentclass` declarations and everything wrapped in `\begin{document}`. Office Open XML (the format inside a `.docx` file) is hundreds of lines of namespace-laden markup just to hold a few paragraphs. These things add up in terms of tokens.
+
+With .qmd, you always pay for the same thing: clean markdown plus a few lines of YAML. Regardless of the output format, the source file looks almost identical, and so does the token count.
+
+To put numbers on this, I ran the same prompt through Claude eight times, each time asking for a different output format. The prompt asked for a summary report on EV charging standards (CCS, CHAdeMO, and NACS) with an introduction, comparison table, pros/cons section, and conclusion (I study the EV market, so this is the example I came up with). The example is rich enough to surface real formating overhead costs.
 
 I split the conditions into two groups:
 
-- **Direct formats**: Claude produces the final file itself — a complete HTML file (with `<head>`, embedded CSS, `<body>`), a compilable LaTeX document, Office Open XML (the raw XML inside a `.docx`), and plain Markdown.
+- **Direct formats**: Claude produces the final file itself — a complete HTML file (with `<head>`, embedded CSS, `<body>`), a compilable LaTeX document, Office Open XML (the raw XML inside a `.docx`), and plain markdown.
 - **Quarto formats**: Claude produces a `.qmd` file with the appropriate `format:` in the YAML frontmatter — `html`, `pdf`, `docx`, and `gfm`. The user renders it locally with `quarto render`.
 
 Everything else was held constant: same model (`claude-haiku-4-5`), same document specification, same `max_tokens` limit. The full [Python script](experiments/measure_tokens.py) is available if you want to run it yourself.
@@ -197,9 +202,142 @@ results |>
 
 The worst case is asking Claude to produce Office Open XML directly: **8,097 output tokens** just to get the raw XML that lives inside a `.docx` file 🤦. Ask for a Quarto document targeting Word instead and you get the same rendered output from **1,121 tokens**. That's a **7× reduction**.
 
-HTML direct (4,046 tokens) costs 4× more than Quarto HTML (1,022 tokens). LaTeX direct (1,992) costs 1.8× more than Quarto PDF (1,123). Only plain Markdown is in the same ballpark as Quarto — because Markdown already *is* essentially what `.qmd` files look like without the YAML frontmatter.
+HTML direct (4,046 tokens) costs 4× more than Quarto HTML (1,022 tokens). LaTeX direct (1,992) costs 1.8× more than Quarto PDF (1,123). Only plain markdown is in the same ballpark as Quarto, because markdown already *is* essentially what `.qmd` files look like without the YAML frontmatter.
 
 Now look at the Quarto column specifically: HTML, PDF, and Word all land between 1,000 and 1,100 tokens. With .qmd, the format you choose barely affects the cost. The "one source, any format" approach is not just convenient, it's also cheaper!
+
+## The penalty compounds across turns
+
+Everything above measures a *single* turn (one prompt, one document). But that actually undersells the real cost when working agentic systems like Claude code, because you almost never generate a document once and walk away. You usually iterate: "make the table wider," "add section XX," "fix that number," etc. 
+
+What most people don't know about agents is that **the model is stateless**. It remembers nothing between turns. On every turn, the agent re-sends the **entire conversation** so far back to the model as *input tokens*. That means the document you generated on turn 1 gets re-read on turn 2, turn 3, and so on.
+
+So a bloated format isn't a one-time cost. It's a token tax you pay again and again on every single turn. 
+
+To make this a bit more concrete, let's spell out the math for two bounds of conditions: diff-based edits (lower bound), and full document regeneration (upper bound).
+
+Let $d$ be the size of the document in tokens (the output token counts from above). The two regimes that bound how the total tokens processed, $T(N)$, grow over $N$ editing turns can be defined as follows:
+
+**Diff-based edits (lower bound).** Agents like Claude Code edit files with targeted find-and-replace (diffs), so the document is re-read once per turn as input but not re-emitted. That means cost grows linearly:
+
+$$T_\text{linear}(N) = d \cdot N$$
+
+**Full regeneration (upper bound).** If instead the agent rewrites the whole file each turn, then turn $t$ must re-read the $t-1$ earlier copies still sitting in the context *and* emit a fresh one. Summing over all turns gives a triangular number, so the cost grows *quadratically*:
+
+$$T_\text{quad}(N) = \sum_{t=1}^{N} t \, d = d \cdot \frac{N(N+1)}{2}$$
+
+The key point is that **both are proportional to $d$**. A document that is $k\times$ larger costs $k\times$ more to carry, in either regime, and that $d$ is exactly the format overhead from the last section. Now it multiplies either $N$ or $N^2/2$.
+
+```{r}
+#| label: fig-turns
+#| echo: false
+#| fig-height: 4
+#| fig-width: 12
+#| fig-cap: "Cumulative tokens processed across editing turns. Solid lines are the linear (diff-based) lower bound; dashed lines are the quadratic (full-regeneration) worst case. Blue is Quarto (.qmd); coral is direct format. Note the free y-axis on each panel."
+#| fig-alt: "Four panels (Word, HTML, PDF, Markdown) showing cumulative tokens rising over ten editing turns. Coral direct-format lines rise faster than blue Quarto lines, and dashed quadratic lines curve sharply above the solid linear lines."
+
+turns_df <- results |>
+  select(output_type, format_type, d = output_tokens) |>
+  crossing(turn = 1:10) |>
+  mutate(
+    Linear = d * turn,
+    `Quadratic (worst case)` = d * turn * (turn + 1) / 2
+  ) |>
+  pivot_longer(
+    c(Linear, `Quadratic (worst case)`),
+    names_to = "model",
+    values_to = "tokens"
+  ) |>
+  mutate(
+    output_type = factor(
+      output_type,
+      levels = c("word", "html", "pdf", "markdown"),
+      labels = c("Word", "HTML", "PDF", "Markdown")
+    ),
+    format_type = factor(
+      format_type,
+      levels = c("direct", "quarto"),
+      labels = c("Direct format", "Quarto (.qmd)")
+    ),
+    model = factor(model, levels = c("Linear", "Quadratic (worst case)"))
+  )
+
+turns_df |>
+  ggplot(aes(x = turn, y = tokens, color = format_type, linetype = model)) +
+  geom_line(linewidth = 1) +
+  facet_wrap(~output_type, nrow = 1, scales = "free_y") +
+  scale_color_manual(
+    values = c("Direct format" = "#d62728", "Quarto (.qmd)" = "#1f77b4"),
+    guide = "none"
+  ) +
+  scale_linetype_manual(
+    values = c("Linear" = "solid", "Quadratic (worst case)" = "dashed")
+  ) +
+  scale_x_continuous(breaks = c(1, 5, 10)) +
+  scale_y_continuous(labels = scales::label_comma()) +
+  labs(
+    x = "Editing turns",
+    y = "Cumulative tokens processed",
+    linetype = NULL,
+    title = paste0(
+      "<span style='color: #d62728;'>Direct format</span>",
+      " vs. ",
+      "<span style='color: #1f77b4;'>Quarto (.qmd)</span>",
+      " token cost across editing turns"
+    )
+  ) +
+  theme_minimal_grid(font_family = font, font_size = 15) +
+  theme(
+    legend.position = "top",
+    plot.title = element_markdown(),
+    plot.title.position = "plot",
+    panel.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(fill = "white", color = NA),
+    strip.background = element_rect(fill = "grey95", color = NA)
+  )
+```
+
+By turn 10, the gap is brutal. Here is the same comparison as before, but projected out to a 10-turn editing session. Each cell shows the range from the linear lower bound ($d \cdot 10$) to the quadratic upper bound ($d \cdot 55$):
+
+<center>
+<div style="width:600px">
+
+```{r}
+#| label: tbl-turns
+#| tbl-cap: "Cumulative tokens processed after a 10-turn editing session, shown as a range from the linear (diff-based) lower bound to the quadratic (full-regeneration) upper bound."
+#| echo: false
+
+fmt_k <- function(x) paste0(round(x / 1000), "k")
+
+results |>
+  select(output_type, format_type, d = output_tokens) |>
+  mutate(
+    range = paste0(
+      fmt_k(d * 10),
+      " – ",
+      fmt_k(d * 55)
+    )
+  ) |>
+  pivot_wider(
+    names_from = format_type,
+    values_from = c(d, range)
+  ) |>
+  mutate(
+    output_type = str_to_title(output_type)
+  ) |>
+  arrange(desc(d_direct)) |>
+  select(
+    `Output Type` = output_type,
+    `Direct Tokens (turn 10)` = range_direct,
+    `Quarto Tokens (turn 10)` = range_quarto
+  ) |>
+  kable(align = "lrr")
+```
+
+</div>
+</center>
+
+Producing a Word doc as raw Office Open XML and editing it over ten turns burns somewhere between **81,000 and 445,000 tokens** (😱) just to carry the format overhead. The equivalent Quarto document stays between **11,000 and 62,000**. The ratio itself (7.2×) never changes because $d$ cancels, but the *absolute* gap widens with every turn, and in the quadratic regime it explodes.
 
 ## Version control and human editability
 
