@@ -2,26 +2,95 @@
 title: Miscellaneous Projects
 description: A collection of miscellaneous projects that may or may not be related to my research.
 preview: images/lab/john_helveston_circle.png
-execute: 
-  echo: false
-  message: false
-  warning: false
 format:
-  html: 
-    css: css/strapless.css
+  html:
+    css: [css/strapless.css, css/projects.css]
+listing:
+  id: projects
+  type: grid
+  grid-columns: 3
+  image-height: 180px
+  fields: [image, title, description, categories]
+  categories: true
+  sort: false
+  filter-ui: false
+  sort-ui: false
+  contents:
+    - title: logitr
+      path: https://jhelvy.github.io/logitr/
+      image: images/hex/logitr.png
+      categories: [R, Software]
+      description: R package for fast estimation of multinomial and mixed logit models with preference space and willingness to pay space utility parameterizations.
+    - title: cbcTools
+      path: https://jhelvy.github.io/cbcTools/
+      image: images/hex/cbcTools.png
+      categories: [R, Software]
+      description: R package with tools for designing choice based conjoint (cbc) survey experiments and conducting power analyses.
+    - title: surveydown
+      path: https://surveydown.org/
+      image: images/hex/surveydown.png
+      categories: [R, Software]
+      description: R package for generating markdown-based surveys using Quarto shiny documents.
+    - title: Wireless Corne
+      path: https://github.com/jhelvy/wireless-corne/
+      image: images/wireless_corne.jpeg
+      categories: [Keyboards]
+      description: Build log and gallery of how I built my wireless Corne keyboard.
+    - title: The Distillery
+      path: https://distillery.rbind.io/
+      image: images/hex/distillery.png
+      categories: [R, Community]
+      description: Distill website showcasing other distill websites and blogs.
+    - title: oica
+      path: https://jhelvy.github.io/oica/
+      image: images/hex/oica.png
+      categories: [R, Software]
+      description: R data package with tidy formatted data on vehicle production and sales from the International Organization of Motor Vehicle Manufacturers.
+    - title: magaScreener
+      path: https://jhelvy.github.io/magaScreener/
+      image: images/magaScreener.png
+      description: "Tool for analyzing documents for specific MAGA-targeted keywords, intended to be used to help identify words that might get screened by the federal government."
+    - title: renderthis
+      path: https://jhelvy.github.io/renderthis/
+      image: images/hex/renderthis.png
+      categories: [R, Software]
+      description: "R package for rendering slides and other media into different formats, including html, pdf, png, gif, pptx, and mp4."
+    - title: charts
+      path: https://www.jhelvy.com/charts
+      image: images/nasa_global_preview.png
+      categories: [R]
+      description: Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts
+    - title: GW Coders
+      path: https://gwcoders.github.io/
+      image: images/gwcoders.png
+      categories: [Community]
+      description: Study group that brings together students and faculty to apply computational and data analytics skills in research.
+    - title: splitKbCompare
+      path: https://jhelvy.shinyapps.io/splitKbCompare/
+      image: images/splitKbCompare.png
+      categories: [R, Software, Keyboards]
+      description: Interactive R Shiny app for comparing layouts of different split mechanical keyboards. Built for the ergonomic keyboard community r/ErgoMechKeyboards.
+    - title: λέξις (lexis)
+      path: https://jhelvy.github.io/lexis/
+      image: images/lexis.png
+      categories: [R, Software]
+      description: 'Theme for xaringan slides with a light gray background, "Fira Sans Condensed" for headers, "Roboto" for body text.'
+    - title: Programming for Analytics in R
+      path: https://p4a.jhelvy.com
+      image: images/hex/p4a.png
+      categories: [R, Education]
+      description: Open source text book on the fundamentals of programming and working with data in R.
+    - title: formr4conjoint
+      path: https://github.com/jhelvy/formr4conjoint/
+      image: images/formr4conjoint.png
+      categories: [R, Education]
+      description: Template for how to create a choice-based conjoint survey using the formr survey platform.
+    - title: Iris Rev 2
+      path: https://github.com/jhelvy/iris-rev2/
+      image: images/iris_rev2.jpg
+      categories: [Keyboards]
+      description: Build log and gallery of how I built my Iris Rev 2 keyboard.
 ---
 
-```{r projects}
-source("_common.R")
-
-readr::read_csv(here::here("content", "projects.csv")) %>% 
-  select(-tags) %>% 
-  bs4cards::cards(
-    title = title,
-    text = description,
-    link = url,
-    image = src,
-    label_colour = "#ffffff",
-    border_radius = 5
-  )
-```
+::: {#projects}
+:::

@@ -1,0 +1,62 @@
+/* Native Quarto listing cards for projects.qmd.
+   NOTE: Quarto prefixes the listing id, so the container is
+   #listing-projects (not #projects). */
+
+/* Squarer card silhouette with a subtle border/shadow.
+   Card itself is transparent so the image area shows the page
+   background; only the text area (.card-body) is painted white. */
+#listing-projects .quarto-grid-item.card {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+}
+
+/* Transparent image area (hex logos sit on the page background) */
+#listing-projects .quarto-grid-item .card-img-top {
+  background-color: transparent;
+  margin-bottom: 0;
+  padding: 0.75rem;
+}
+
+/* Show the whole logo instead of cropping it */
+#listing-projects .quarto-grid-item img.thumbnail-image {
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* White background behind the text (title, description, categories) */
+#listing-projects .quarto-grid-item .card-body {
+  background-color: #ffffff;
+  border-radius: 0;
+}
+
+#listing-projects .quarto-grid-item .listing-title,
+#listing-projects .quarto-grid-item .listing-description {
+  color: #1a1a1a;
+}
+
+/* Pill-style category tags */
+#listing-projects .quarto-grid-item .listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.4rem 0 0.6rem;
+}
+
+#listing-projects .quarto-grid-item .listing-category {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.7rem;
+  text-transform: none;
+  color: #555;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#listing-projects .quarto-grid-item .listing-category:hover {
+  background-color: #ececec;
+}
