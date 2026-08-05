@@ -38,6 +38,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./images/favicon/favicon.ico" rel="icon">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -74,6 +76,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-projects .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-image","listing-categories","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HQNG5WQE3X"></script>
 
 <script type="text/javascript">
@@ -96,8 +127,38 @@ gtag('config', 'G-HQNG5WQE3X', { 'anonymize_ip': true});
 
 
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="css/strapless.css">
+<link rel="stylesheet" href="css/projects.css">
 <meta property="og:title" content="Miscellaneous Projects – jhelvy.com">
 <meta property="og:description" content="A collection of miscellaneous projects that may or may not be related to my research.">
 <meta property="og:image" content="https://www.jhelvy.com/images/nasa_global_preview.png">
@@ -115,7 +176,7 @@ gtag('config', 'G-HQNG5WQE3X', { 'anonymize_ip': true});
 <meta name="twitter:image-width" content="1422">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -167,7 +228,9 @@ gtag('config', 'G-HQNG5WQE3X', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="Q29tbXVuaXR5">Community <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(2)</span></div><div class="category" data-category="S2V5Ym9hcmRz">Keyboards <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(11)</span></div><div class="category" data-category="U29mdHdhcmU=">Software <span class="quarto-category-count">(7)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -195,179 +258,344 @@ gtag('config', 'G-HQNG5WQE3X', { 'anonymize_ip': true});
 </header>
 
 
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<div class="row p-0 row-cols-1 row-cols-md-2 row-cols-lg-3" style="margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; ">
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/logitr/" style="color: inherit;">
-<img src="images/hex/logitr.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/logitr/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">logitr</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">R package for fast estimation of multinomial and mixed logit models with preference space and willingness to pay space utility parameterizations.</p>
+<div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/logitr/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/logitr.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+logitr
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>R package for fast estimation of multinomial and mixed logit models with preference space and willingness to pay space utility parameterizations.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/cbcTools/" style="color: inherit;">
-<img src="images/hex/cbcTools.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/cbcTools/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">cbcTools</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">R package with tools for designing choice based conjoint (cbc) survey experiments and conducting power analyses.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/cbcTools/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/cbcTools.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+cbcTools
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>R package with tools for designing choice based conjoint (cbc) survey experiments and conducting power analyses.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://surveydown.org/" style="color: inherit;">
-<img src="images/hex/surveydown.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://surveydown.org/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">surveydown</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">R package for generating markdown-based surveys using Quarto shiny documents.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://surveydown.org/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/surveydown.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+surveydown
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>R package for generating markdown-based surveys using Quarto shiny documents.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://github.com/jhelvy/wireless-corne/" style="color: inherit;">
-<img src="images/wireless_corne.jpeg" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://github.com/jhelvy/wireless-corne/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">Wireless Corne</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Build log and gallery of how I built my wireless Corne keyboard.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="S2V5Ym9hcmRz">
+<a href="https://github.com/jhelvy/wireless-corne/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/wireless_corne.jpeg" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Wireless Corne
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('S2V5Ym9hcmRz'); return false;">Keyboards</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Build log and gallery of how I built my wireless Corne keyboard.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://distillery.rbind.io/" style="color: inherit;">
-<img src="images/hex/distillery.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://distillery.rbind.io/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">The Distillery</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Distill website showcasing other distill websites and blogs.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="UiUyQ0NvbW11bml0eQ==">
+<a href="https://distillery.rbind.io/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/distillery.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The Distillery
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tbXVuaXR5'); return false;">Community</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Distill website showcasing other distill websites and blogs.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/oica/" style="color: inherit;">
-<img src="images/hex/oica.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/oica/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">oica</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">R data package with tidy formatted data on vehicle production and sales from the International Organization of Motor Vehicle Manufacturers.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/oica/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/oica.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+oica
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>R data package with tidy formatted data on vehicle production and sales from the International Organization of Motor Vehicle Manufacturers.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/magaScreener/" style="color: inherit;">
-<img src="images/magaScreener.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/magaScreener/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">magaScreener</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Tool for analyzing documents for specific MAGA-targeted keywords, intended to be used to help identify words that might get screened by the federal government.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6">
+<a href="https://jhelvy.github.io/magaScreener/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/magaScreener.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+magaScreener
+</h5>
+<div class="card-text listing-description delink">
+<p>Tool for analyzing documents for specific MAGA-targeted keywords, intended to be used to help identify words that might get screened by the federal government.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/renderthis/" style="color: inherit;">
-<img src="images/hex/renderthis.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/renderthis/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">renderthis</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">R package for rendering slides and other media into different formats, including html, pdf, png, gif, pptx, and mp4.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/renderthis/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/renderthis.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+renderthis
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>R package for rendering slides and other media into different formats, including html, pdf, png, gif, pptx, and mp4.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://www.jhelvy.com/charts" style="color: inherit;">
-<img src="images/nasa_global_preview.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://www.jhelvy.com/charts">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">charts</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="Ug==">
+<a href="https://www.jhelvy.com/charts" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/nasa_global_preview.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+charts
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://gwcoders.github.io/" style="color: inherit;">
-<img src="images/gwcoders.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://gwcoders.github.io/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">GW Coders</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Study group that brings together students and faculty to apply computational and data analytics skills in research.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="Q29tbXVuaXR5">
+<a href="https://gwcoders.github.io/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/gwcoders.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+GW Coders
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tbXVuaXR5'); return false;">Community</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Study group that brings together students and faculty to apply computational and data analytics skills in research.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.shinyapps.io/splitKbCompare/" style="color: inherit;">
-<img src="images/splitKbCompare.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.shinyapps.io/splitKbCompare/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">splitKbCompare</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Interactive R Shiny app for comparing layouts of different split mechanical keyboards. Built for the ergonomic keyboard community r/ErgoMechKeyboards.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="UiUyQ1NvZnR3YXJlJTJDS2V5Ym9hcmRz">
+<a href="https://jhelvy.shinyapps.io/splitKbCompare/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/splitKbCompare.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+splitKbCompare
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('S2V5Ym9hcmRz'); return false;">Keyboards</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Interactive R Shiny app for comparing layouts of different split mechanical keyboards. Built for the ergonomic keyboard community r/ErgoMechKeyboards.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://jhelvy.github.io/lexis/" style="color: inherit;">
-<img src="images/lexis.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://jhelvy.github.io/lexis/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">λέξις (lexis)</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Theme for xaringan slides with a light gray background, "Fira Sans Condensed" for headers, “Roboto” for body text.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="11" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/lexis/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/lexis.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+λέξις (lexis)
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Theme for xaringan slides with a light gray background, “Fira Sans Condensed” for headers, “Roboto” for body text.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://p4a.jhelvy.com" style="color: inherit;">
-<img src="images/hex/p4a.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://p4a.jhelvy.com">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">Programming for Analytics in R</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Open source text book on the fundamentals of programming and working with data in R.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="UiUyQ0VkdWNhdGlvbg==">
+<a href="https://p4a.jhelvy.com" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/p4a.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Programming for Analytics in R
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWR1Y2F0aW9u'); return false;">Education</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Open source text book on the fundamentals of programming and working with data in R.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://github.com/jhelvy/formr4conjoint/" style="color: inherit;">
-<img src="images/formr4conjoint.png" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://github.com/jhelvy/formr4conjoint/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">formr4conjoint</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Template for how to create a choice-based conjoint survey using the formr survey platform.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="UiUyQ0VkdWNhdGlvbg==">
+<a href="https://github.com/jhelvy/formr4conjoint/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/formr4conjoint.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+formr4conjoint
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWR1Y2F0aW9u'); return false;">Education</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Template for how to create a choice-based conjoint survey using the formr survey platform.</p>
 </div>
 </div>
-<div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah " style="padding: .2rem ; border-width: 0; border-radius: 1rem 1rem 1rem 1rem ;">
-<a href="https://github.com/jhelvy/iris-rev2/" style="color: inherit;">
-<img src="images/iris_rev2.jpg" class="card-img-top" style="border-style:solid; border-color:inherits; border-width:1px 1px 0 1px; border-radius: 1rem 1rem 0 0 ;">
-</a>
-<div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFFF; border-style:solid; border-color:inherits; border-width:1px; border-radius: 0 0 1rem 1rem ;">
-<a href="https://github.com/jhelvy/iris-rev2/">
-<h5 class="card-title my-auto px-3 pt-3 pb-1 anchored">Iris Rev 2</h5>
-</a>
-<p class="card-text my-auto px-3 pb-3 pt-1">Build log and gallery of how I built my Iris Rev 2 keyboard.</p>
+</div></a>
+</div>
+<div class="g-col-1" data-index="14" data-categories="S2V5Ym9hcmRz">
+<a href="https://github.com/jhelvy/iris-rev2/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/iris_rev2.jpg" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Iris Rev 2
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('S2V5Ym9hcmRz'); return false;">Keyboards</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Build log and gallery of how I built my Iris Rev 2 keyboard.</p>
 </div>
 </div>
+</div></a>
 </div>
 </div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
-</div>
+
 
 
 
