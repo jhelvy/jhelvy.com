@@ -13,6 +13,26 @@
   background-color: transparent;
 }
 
+/* Hover: highlight the card with a soft glow in the site accent blue
+   (#5480a7), plus a subtle press-shrink on click. */
+#listing-projects .quarto-grid-item.card {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.12s ease;
+}
+
+#listing-projects .quarto-grid-item.card:hover {
+  border-color: #5480a7;
+  box-shadow: 0 0 16px 1px rgba(84, 128, 167, 0.22),
+    0 6px 16px rgba(84, 128, 167, 0.16);
+}
+
+#listing-projects .quarto-grid-item.card:active {
+  border-color: #2c3f51;
+  box-shadow: 0 0 9px 0 rgba(84, 128, 167, 0.18),
+    0 3px 8px rgba(84, 128, 167, 0.16);
+  transform: scale(0.992);
+}
+
 /* Transparent image area (hex logos sit on the page background) */
 #listing-projects .quarto-grid-item .card-img-top {
   background-color: transparent;
