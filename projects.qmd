@@ -31,25 +31,6 @@ listing:
       image: images/hex/surveydown.png
       categories: [R, Software]
       description: R package for generating markdown-based surveys using Quarto shiny documents.
-    - title: Wireless Corne
-      path: https://github.com/jhelvy/wireless-corne/
-      image: images/wireless_corne.jpeg
-      categories: [Keyboards]
-      description: Build log and gallery of how I built my wireless Corne keyboard.
-    - title: The Distillery
-      path: https://distillery.rbind.io/
-      image: images/hex/distillery.png
-      categories: [R, Community]
-      description: Distill website showcasing other distill websites and blogs.
-    - title: oica
-      path: https://jhelvy.github.io/oica/
-      image: images/hex/oica.png
-      categories: [R, Software]
-      description: R data package with tidy formatted data on vehicle production and sales from the International Organization of Motor Vehicle Manufacturers.
-    - title: magaScreener
-      path: https://jhelvy.github.io/magaScreener/
-      image: images/magaScreener.png
-      description: "Tool for analyzing documents for specific MAGA-targeted keywords, intended to be used to help identify words that might get screened by the federal government."
     - title: renderthis
       path: https://jhelvy.github.io/renderthis/
       image: images/hex/renderthis.png
@@ -60,36 +41,50 @@ listing:
       image: images/nasa_global_preview.png
       categories: [R]
       description: Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts
+    - title: λέξις (lexis)
+      path: https://jhelvy.github.io/quarto-lexis/
+      image: images/lexis.png
+      categories: [R, Software]
+      description: 'My highly opinionated Quarto template for revealjs slides.'
     - title: GW Coders
       path: https://gwcoders.github.io/
       image: images/gwcoders.png
       categories: [Community]
       description: Study group that brings together students and faculty to apply computational and data analytics skills in research.
-    - title: splitKbCompare
-      path: https://jhelvy.shinyapps.io/splitKbCompare/
-      image: images/splitKbCompare.png
-      categories: [R, Software, Keyboards]
-      description: Interactive R Shiny app for comparing layouts of different split mechanical keyboards. Built for the ergonomic keyboard community r/ErgoMechKeyboards.
-    - title: λέξις (lexis)
-      path: https://jhelvy.github.io/lexis/
-      image: images/lexis.png
+    - title: oica
+      path: https://jhelvy.github.io/oica/
+      image: images/hex/oica.png
       categories: [R, Software]
-      description: 'Theme for xaringan slides with a light gray background, "Fira Sans Condensed" for headers, "Roboto" for body text.'
+      description: R data package with tidy formatted data on vehicle production and sales from the International Organization of Motor Vehicle Manufacturers.
+    - title: magaScreener
+      path: https://jhelvy.github.io/magaScreener/
+      image: images/magaScreener.png
+      description: "Tool for analyzing documents for specific MAGA-targeted keywords, intended to be used to help identify words that might get screened by the federal government."
     - title: Programming for Analytics in R
       path: https://p4a.jhelvy.com
       image: images/hex/p4a.png
       categories: [R, Education]
       description: Open source text book on the fundamentals of programming and working with data in R.
-    - title: formr4conjoint
-      path: https://github.com/jhelvy/formr4conjoint/
-      image: images/formr4conjoint.png
-      categories: [R, Education]
-      description: Template for how to create a choice-based conjoint survey using the formr survey platform.
+    - title: Wireless Corne
+      path: https://github.com/jhelvy/wireless-corne/
+      image: images/wireless_corne.jpeg
+      categories: [Keyboards]
+      description: Build log and gallery of how I built my wireless Corne keyboard.
+    - title: splitKbCompare
+      path: https://jhelvy.shinyapps.io/splitKbCompare/
+      image: images/splitKbCompare.png
+      categories: [R, Software, Keyboards]
+      description: Interactive R Shiny app for comparing layouts of different split mechanical keyboards. Built for the ergonomic keyboard community r/ErgoMechKeyboards.
     - title: Iris Rev 2
       path: https://github.com/jhelvy/iris-rev2/
       image: images/iris_rev2.jpg
       categories: [Keyboards]
       description: Build log and gallery of how I built my Iris Rev 2 keyboard.
+    - title: The Distillery
+      path: https://distillery.rbind.io/
+      image: images/hex/distillery.png
+      categories: [R, Community]
+      description: Distill website showcasing other distill websites and blogs.
 ---
 
 ::: {#projects}
