@@ -129,6 +129,7 @@ However, not everyone has access to GPUs, and getting something like this to wor
 Furthermore, {logitr} still ran entirely in {{< fa brands r-project >}}, which, like Python and other higher-level languages, is terribly slow compared to C++:
 
 ![](c-plus-plus-talking-to-python.png){fig-align="center" width="80%"}
+
 [[From Reddit](https://www.reddit.com/r/ProgrammerHumor/comments/w1upl0/c_talking_to_python/)]{.aside}
 
 Changing things so that the main calculations were run in compiled C++ instead of {{< fa brands r-project >}} is something that I have seen many other packages do to achieve much higher speeds. So this too felt like the right direction to move in, but I just never did it. Adding a compiled backend to a package like this is the kind of job that's genuinely really, really challenging. I never really knew where to begin, and I never had the time to truly learn how it all works. Doing this would mean porting the log-likelihood and its analytic gradient to C++ and keep the math *exactly* right while also setting up infrastructure to confirm the results still match the {{< fa brands r-project >}} version down to the last decimal and wiring up multithreading without breaking anything. That's weeks and weeks of hard stuff, and it's very easy to get something subtly / silently wrong.
