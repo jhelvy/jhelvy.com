@@ -29,13 +29,13 @@ library(tinytable)
 workshops <- readr::read_csv(file.path('content', 'workshops.csv')) %>%
   mutate(
     Site = glue(
-      '<a href="https://jhelvy.github.io/{repo}" target="_blank" rel="noopener"><i class="bi bi-window-fullscreen"></i></a>'
+      '<a href="https://{user}.github.io/{repo}" target="_blank" rel="noopener"><i class="bi bi-window-fullscreen"></i></a>'
     ),
     Source = glue(
-      '<a href="https://github.com/jhelvy/{repo}" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>'
+      '<a href="https://github.com/{user}/{repo}" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>'
     )
   ) %>%
-  select(-repo) %>%
+  select(-repo, -user) %>%
   janitor::clean_names(case = 'title')
 
 workshops |>
