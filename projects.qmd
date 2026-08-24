@@ -26,6 +26,11 @@ listing:
       image: images/hex/cbcTools.png
       categories: [R, Software]
       description: R package with tools for designing choice based conjoint (cbc) survey experiments and conducting power analyses.
+    - title: earmark
+      path: https://jhelvy.github.io/earmark/
+      image: images/hex/earmark.png
+      categories: [Python, Software]
+      description: Command line tool that turns documents and article URLs into a private podcast feed, narrated locally with Kokoro.
     - title: surveydown
       path: https://surveydown.org/
       image: images/hex/surveydown.png
