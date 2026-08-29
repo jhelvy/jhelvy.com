@@ -44,13 +44,38 @@ listing:
     - title: charts
       path: https://www.jhelvy.com/charts
       image: images/nasa_global_preview.png
-      categories: [R]
+      categories: [R, Data Viz]
       description: Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts
+    - title: vehicletrends.us
+      path: https://vehicletrends.us/
+      image: images/hex/vehicletrends.png
+      categories: [R, Data Viz]
+      description: Site showcasing trends in the U.S. automotive market, including depreciation, mileage accumulation, market concentration, and more.
+    - title: Data Centers vs. States
+      path: https://jhelvy.github.io/datacenter-states/
+      image: images/datacenter_states.png
+      categories: [R, Data Viz]
+      description: Dashboard comparing the power consumption of select data centers to that of entire U.S. states.
+    - title: POTUS Econ Scorecard
+      path: https://jhelvy.github.io/potus-econ-scorecard/
+      image: images/potus_econ_scorecard.png
+      categories: [R, Data Viz]
+      description: Interactive web app that compares economic performance indicators across different presidential administrations.
+    - title: Climate Indicators
+      path: https://climateindicators.us/
+      image: images/climateindicators.png
+      categories: [R, Data Viz]
+      description: Site tracking the indicators that show how a changing climate is affecting people and places across the United States.
     - title: λέξις (lexis)
       path: https://jhelvy.github.io/quarto-lexis/
       image: images/lexis.png
       categories: [R, Software]
       description: 'My highly opinionated Quarto template for revealjs slides.'
+    - title: quarto-dashboard
+      path: https://jhelvy.github.io/quarto-dashboard/
+      image: images/quarto_dashboard.png
+      categories: [R, Software]
+      description: Demo site of how I use the Quarto website framework to build interactive, serverless dashboards.
     - title: GW Coders
       path: https://gwcoders.github.io/
       image: images/gwcoders.png
