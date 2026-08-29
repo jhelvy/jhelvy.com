@@ -87,7 +87,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-image","listing-categories","listing-description"],
     };
 
@@ -230,7 +231,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="Q29tbXVuaXR5">Community <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="S2V5Ym9hcmRz">Keyboards <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(10)</span></div><div class="category" data-category="U29mdHdhcmU=">Software <span class="quarto-category-count">(8)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Q29tbXVuaXR5">Community <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMFZpeg==">Data Viz <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="S2V5Ym9hcmRz">Keyboards <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(15)</span></div><div class="category" data-category="U29mdHdhcmU=">Software <span class="quarto-category-count">(9)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -375,7 +376,7 @@ renderthis
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="Ug==">
+<div class="g-col-1" data-index="5" data-categories="UiUyQ0RhdGElMjBWaXo=">
 <a href="https://www.jhelvy.com/charts" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -389,6 +390,8 @@ charts
 
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpeg=='); return false;">Data Viz</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts</p>
@@ -396,7 +399,99 @@ charts
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="UiUyQ1NvZnR3YXJl">
+<div class="g-col-1" data-index="6" data-categories="UiUyQ0RhdGElMjBWaXo=">
+<a href="https://vehicletrends.us/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/hex/vehicletrends.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+vehicletrends.us
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpeg=='); return false;">Data Viz</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Site showcasing trends in the U.S. automotive market, including depreciation, mileage accumulation, market concentration, and more.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="UiUyQ0RhdGElMjBWaXo=">
+<a href="https://jhelvy.github.io/datacenter-states/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/datacenter_states.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Data Centers vs.&nbsp;States
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpeg=='); return false;">Data Viz</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Dashboard comparing the power consumption of select data centers to that of entire U.S. states.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="UiUyQ0RhdGElMjBWaXo=">
+<a href="https://jhelvy.github.io/potus-econ-scorecard/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/potus_econ_scorecard.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+POTUS Econ Scorecard
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpeg=='); return false;">Data Viz</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Interactive web app that compares economic performance indicators across different presidential administrations.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="UiUyQ0RhdGElMjBWaXo=">
+<a href="https://climateindicators.us/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/climateindicators.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Climate Indicators
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpeg=='); return false;">Data Viz</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Site tracking the indicators that show how a changing climate is affecting people and places across the United States.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="UiUyQ1NvZnR3YXJl">
 <a href="https://jhelvy.github.io/quarto-lexis/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -419,7 +514,30 @@ charts
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="Q29tbXVuaXR5">
+<div class="g-col-1" data-index="11" data-categories="UiUyQ1NvZnR3YXJl">
+<a href="https://jhelvy.github.io/quarto-dashboard/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="images/quarto_dashboard.png" class="thumbnail-image card-img" style="height: 180px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+quarto-dashboard
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmU='); return false;">Software</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Demo site of how I use the Quarto website framework to build interactive, serverless dashboards.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="Q29tbXVuaXR5">
 <a href="https://gwcoders.github.io/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -440,7 +558,7 @@ GW Coders
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="UiUyQ1NvZnR3YXJl">
+<div class="g-col-1" data-index="13" data-categories="UiUyQ1NvZnR3YXJl">
 <a href="https://jhelvy.github.io/oica/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -463,7 +581,7 @@ oica
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9">
+<div class="g-col-1" data-index="14">
 <a href="https://jhelvy.github.io/magaScreener/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -479,7 +597,7 @@ magaScreener
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="UiUyQ0VkdWNhdGlvbg==">
+<div class="g-col-1" data-index="15" data-categories="UiUyQ0VkdWNhdGlvbg==">
 <a href="https://p4a.jhelvy.com" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -502,7 +620,7 @@ Programming for Analytics in R
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="S2V5Ym9hcmRz">
+<div class="g-col-1" data-index="16" data-categories="S2V5Ym9hcmRz">
 <a href="https://github.com/jhelvy/wireless-corne/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -523,7 +641,7 @@ Wireless Corne
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="UiUyQ1NvZnR3YXJlJTJDS2V5Ym9hcmRz">
+<div class="g-col-1" data-index="17" data-categories="UiUyQ1NvZnR3YXJlJTJDS2V5Ym9hcmRz">
 <a href="https://jhelvy.shinyapps.io/splitKbCompare/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -548,11 +666,11 @@ splitKbCompare
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="S2V5Ym9hcmRz">
+<div class="g-col-1" data-index="18" data-categories="S2V5Ym9hcmRz">
 <a href="https://github.com/jhelvy/iris-rev2/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/iris_rev2.jpg" class="thumbnail-image card-img" style="height: 180px;">
+<img loading="lazy" data-src="images/iris_rev2.jpg" class="thumbnail-image card-img" style="height: 180px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -569,11 +687,11 @@ Iris Rev 2
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="UiUyQ0NvbW11bml0eQ==">
+<div class="g-col-1" data-index="19" data-categories="UiUyQ0NvbW11bml0eQ==">
 <a href="https://distillery.rbind.io/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/hex/distillery.png" class="thumbnail-image card-img" style="height: 180px;">
+<img loading="lazy" data-src="images/hex/distillery.png" class="thumbnail-image card-img" style="height: 180px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -594,6 +712,9 @@ The Distillery
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="projects-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 
 
