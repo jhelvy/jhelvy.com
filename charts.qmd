@@ -12,15 +12,23 @@ execute:
 ```{r setup}
 source("_common.R")
 
-charts <- gsheet::gsheet2tbl('https://docs.google.com/spreadsheets/d/1Zj1jXqV5XsAXeIkUPzCJkvMrU5ah_y6VHb-san0Baio/edit?usp=sharing') %>% 
-    mutate(
-        url_repo = paste0(
-            "https://github.com/jhelvy/charts/tree/master/", name),
-        url_image = paste0(
-            "https://raw.githubusercontent.com/jhelvy/charts/master/",
-            name, "/plots/", image, ".png"),
-        link = paste0('<li><a href="#', name, '">', name, '</a></li>')
-    )
+charts <- gsheet::gsheet2tbl(
+  'https://docs.google.com/spreadsheets/d/1Zj1jXqV5XsAXeIkUPzCJkvMrU5ah_y6VHb-san0Baio/edit?usp=sharing'
+) %>%
+  mutate(
+    url_repo = paste0(
+      "https://github.com/jhelvy/charts/tree/master/",
+      name
+    ),
+    url_image = paste0(
+      "https://raw.githubusercontent.com/jhelvy/charts/master/",
+      name,
+      "/plots/",
+      image,
+      ".png"
+    ),
+    link = paste0('<li><a href="#', name, '">', name, '</a></li>')
+  )
 ```
 
 A bunch of reproducible charts. All data and source code are available on [this repo](https://github.com/jhelvy/charts).
@@ -37,16 +45,30 @@ All charts are licensed under a
 ```{r}
 #| results: asis
 
-# Download description.Rmd as temp file
-
-td <- tempdir()
-tf <- tempfile(tmpdir = td, fileext = ".Rmd")
-download.file(
-    'https://raw.githubusercontent.com/jhelvy/charts/master/description.Rmd',
-    tf
-)
 for (i in 1:nrow(charts)) {
-    chart <- charts[i,]
-    cat(knitr::knit_child(tf,quiet = TRUE), sep = '\n')
+  chart <- charts[i, ]
+  cat(
+    paste0("# ", chart$name),
+    "",
+    paste0("**Description**: ", chart$description),
+    "",
+    paste0("**Data**: ", chart$data),
+    "",
+    paste0("**Code**: [", chart$name, " on GitHub](", chart$url_repo, ")"),
+    "",
+    "<center>",
+    paste0(
+      "![",
+      chart$caption,
+      "](",
+      chart$url_image,
+      "){width=",
+      chart$out_width,
+      " .lightbox}"
+    ),
+    "</center>",
+    "",
+    sep = "\n"
+  )
 }
 ```

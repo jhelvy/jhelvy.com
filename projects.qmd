@@ -43,7 +43,7 @@ listing:
       description: "R package for rendering slides and other media into different formats, including html, pdf, png, gif, pptx, and mp4."
     - title: charts
       path: https://www.jhelvy.com/charts
-      image: images/nasa_global_preview.png
+      image: images/charts.png
       categories: [R, Data Viz]
       description: Bunch of reproducible charts. All data and source code are available at https://github.com/jhelvy/charts
     - title: vehicletrends.us
