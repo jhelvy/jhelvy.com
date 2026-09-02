@@ -283,3 +283,24 @@ make_media_list <- function() {
     )
   return(paste(temp$post, collapse = "\n"))
 }
+
+# Teaching page: build the collapsible "Past semesters" pill list for one
+# course from content/courses.csv. Semesters with no url (no archived site)
+# render as unlinked pills. Returned as a single line of html -- pandoc ends
+# a raw html block at the first blank line.
+make_semesters <- function(stub, file = file.path('content', 'courses.csv')) {
+  d <- readr::read_csv(file, show_col_types = FALSE) %>%
+    filter(course == stub) %>%
+    # reverse chronological, Fall ahead of Spring within a year
+    arrange(desc(year), desc(term == "Fall"))
+  pills <- ifelse(
+    is.na(d$url),
+    glue::glue('<span>{d$term} {d$year}</span>'),
+    glue::glue('<a href="{d$url}">{d$term} {d$year}</a>')
+  )
+  return(paste0(
+    '<details class="semesters"><summary>Semesters Taught (', nrow(d),
+    ')</summary><div class="semester-pills">', paste(pills, collapse = ''),
+    '</div></details>'
+  ))
+}
