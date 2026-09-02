@@ -1,0 +1,168 @@
+/* Course cards for teaching.qmd.
+   Modeled on css/projects.css so the two pages read as one system.
+   Colors are hard-coded here (plain CSS can't see theme.scss variables).
+
+   NOTE ON SOURCE ORDER: the ### heading must be the FIRST block inside
+   .course-card. Pandoc only pulls a heading into the TOC if the div it sits
+   in begins with that heading, so putting the logo div ahead of it silently
+   drops the course from the "Courses" sidebar. The logo therefore comes
+   after the heading in the .qmd and is placed back into the left column
+   here with grid-column / grid-row. */
+
+.course-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-card:hover {
+  border-color: #5480a7;
+  box-shadow: 0 0 16px 1px rgba(84, 128, 167, 0.22),
+    0 6px 16px rgba(84, 128, 167, 0.16);
+}
+
+/* Everything except the logo lives in the right-hand column */
+.course-card > * {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.course-logo {
+  grid-column: 1;
+  grid-row: 1 / span 99;
+}
+
+/* Pandoc wraps the image in a <p>; zero both that and the global
+   img { margin-bottom: 1rem } from theme.scss */
+.course-logo p,
+.course-logo img {
+  margin-bottom: 0;
+}
+
+.course-logo img {
+  width: 100%;
+}
+
+/* Cards with no logo (Workshops) collapse to a single column */
+.course-card.no-logo {
+  grid-template-columns: 1fr;
+}
+
+.course-card.no-logo > * {
+  grid-column: 1;
+}
+
+/* Align the heading with the top of the hex logo */
+.course-card > h3 {
+  margin-top: 0;
+  margin-bottom: 0.15rem;
+}
+
+.course-meta {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: #6b7c8c;
+  margin-bottom: 0.75rem;
+}
+
+.course-meta p {
+  margin-bottom: 0;
+}
+
+.course-card p {
+  margin-bottom: 0.85rem;
+}
+
+/* Reuse .icon-link from theme.scss, but with padding suited to a card CTA
+   (the theme's 1px 4px is tuned for the small icon buttons on research) */
+.course-card .icon-link {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-right: 0.35rem;
+}
+
+/* Collapsible semester archive.
+   theme.scss sets details > summary color to #f2f6f9 (near-invisible on
+   white) in a monospace font, so both are overridden here. */
+.course-card details.semesters {
+  margin-top: 0.9rem;
+}
+
+.course-card details.semesters > summary {
+  color: #5480a7;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 0;
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.course-card details.semesters > summary:hover {
+  color: #56a754;
+}
+
+.semester-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.semester-pills a,
+.semester-pills span {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.75rem;
+  color: #555;
+  background-color: #f7f7f7;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.semester-pills a:hover {
+  border-color: #5480a7;
+  color: #5480a7;
+  background-color: #ececec;
+}
+
+/* Unlinked semesters (no archived site) read as muted */
+.semester-pills span {
+  color: #999;
+}
+
+@media (max-width: 575px) {
+  .course-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .course-card > *,
+  .course-logo {
+    grid-column: 1;
+  }
+
+  /* drop the row span and hoist the logo above the heading */
+  .course-logo {
+    grid-row: auto;
+    order: -1;
+    width: 120px;
+  }
+
+  .semester-pills {
+    justify-content: center;
+  }
+}
