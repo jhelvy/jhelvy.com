@@ -12,8 +12,9 @@ execute:
 ```{r setup}
 source("_common.R")
 
-charts <- gsheet::gsheet2tbl(
-  'https://docs.google.com/spreadsheets/d/1Zj1jXqV5XsAXeIkUPzCJkvMrU5ah_y6VHb-san0Baio/edit?usp=sharing'
+charts <- readr::read_csv(
+  'https://raw.githubusercontent.com/jhelvy/charts/master/charts.csv',
+  show_col_types = FALSE
 ) %>%
   mutate(
     url_repo = paste0(
