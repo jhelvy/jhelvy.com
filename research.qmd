@@ -49,7 +49,7 @@ pubs <- get_pubs()
 
 <br>
 
-<u>Underline</u> indicates advisee; * graduate student, **undergraduate student
+<u>Underline</u> indicates advisee; <sup>†</sup>postdoc, * graduate student, **undergraduate student
 
 </center>
 
@@ -63,7 +63,11 @@ pubs <- get_pubs()
 
 `r make_pub_list(pubs, "conference")`
 
-## Working Papers & Papers Under Review
+## Papers Under Review
+
+`r make_pub_list(pubs, "under_review")`
+
+## Working Papers
 
 `r make_pub_list(pubs, "working")`
 

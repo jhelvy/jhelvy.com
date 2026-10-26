@@ -67,11 +67,11 @@ make_citation <- function(pub) {
 }
 
 # Plain-text version of make_citation() for the "Cite" button on each pub:
-# the same parts with the markdown stripped (bold self-name, the \\* advisee
-# markers, the italic journal) and the DOI as a full link
+# the same parts with the markdown stripped (bold self-name, the \\* and †
+# advisee markers, the italic journal) and the DOI as a full link
 make_plain_citation <- function(pub) {
   parts <- c(
-    str_remove_all(pub$author, "\\\\|\\*"),
+    str_remove_all(pub$author, "\\\\|\\*|†"),
     glue::glue("({pub$year})"),
     glue::glue('"{pub$title}"'),
     if (!is.na(pub$journal)) glue::glue("{pub$journal}."),
@@ -377,10 +377,15 @@ markdown_to_html <- function(text) {
   )
   text <- gsub(
     pattern = "\\\\\\*\\\\\\*([^,]+), ([^,]+)", 
-    replacement = "<u>\\\\*\\\\*\\1</u>, \\2", 
+    replacement = "<u>\\\\*\\\\*\\1</u>, \\2",
     text
   )
-  
+  text <- gsub(
+    pattern = "†([^,]+), ([^,]+)",
+    replacement = "<sup>†</sup><u>\\1</u>, \\2",
+    text
+  )
+
   # Render the text as HTML
   return(HTML(markdown::renderMarkdown(text = text)))
 }
