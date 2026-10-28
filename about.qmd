@@ -35,7 +35,7 @@ I have also extensively studied the EV industry, both in China and the U.S. In a
 
 You can see more about my research on my [Research Page](research.qmd).
 
-# Open Source Software & {{< fa brands r-project >}}
+# Open Source Research Software & {{< fa brands r-project >}}
 
 <center>
 ![Hex stickers for R packages and courses I've developed](images/hex/hex_logos.png){width=80% .external}
