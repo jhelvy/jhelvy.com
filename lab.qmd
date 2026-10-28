@@ -42,10 +42,9 @@ The Technology Change Lab conducts interdisciplinary research that explores rela
 
 # Topics
 
-- **Clean Technology Development & Adoption**: Quantify how consumers, firms, markets, and policy affect the nature & pace of transitioning to sustainable energy and transportation technologies.
-- **Consumer Preferences for Emerging Technology**: Measure and model consumer preferences to assess policy and product design and simulate consumer choice behavior under uncertainty.
-- **Electric Vehicles & Sustainable Transportation Technologies**: Assess barriers and opportunities to accelerating the development & adoption of sustainable transportation technologies.
-- **U.S.-China Climate Relationship**: Study the critical relationship between the US and China in developing, scaling, and mass deploying low carbon energy technologies.
+- **Human Behavior in Energy & Transportation Systems**: EV adoption and use; preferences and policy design; smart charging and grid integration; vehicle access and affordability.
+- **Methods & Research Software**: Discrete choice modeling; machine learning for preference heterogeneity; open-source research software; survey data quality and AI.
+- **Global Clean Technology Industries & China**: Supply chains and learning curves; industrial policy; U.S.-China competition and collaboration.
 
 # Affiliations
 
