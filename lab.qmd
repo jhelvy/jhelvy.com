@@ -57,9 +57,12 @@ The Technology Change Lab conducts interdisciplinary research that explores rela
 # Funding
 
 - [Alfred P. Sloan Foundation](https://sloan.org/programs/research/energy-and-environment)
-- [Department of Energy, Vehicle Technologies Office](https://www.energy.gov/eere/vehicles/vehicle-technologies-office)
+- [Department of Energy, Transportation Technologies Office](https://www.energy.gov/cmei/vehicles)
+- [Environmental Protection Agency](https://www.epa.gov/)
+- [National Institute of Standards and Technology](https://www.nist.gov/)
 - [National Science Foundation](http://www.nsf.gov/)
 - [Toyota Mobility Foundation](https://www.toyota.com/usa/community/grant-guidelines-applications/overview.html)
+- [Electric Power Research Institute](https://www.epri.com/)
 - [Link Energy Foundation](http://www.linkenergy.org/)
 - [Ford Motor Company](http://corporate.ford.com/homepage.html)
 
