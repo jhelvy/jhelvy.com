@@ -18,7 +18,7 @@ jobs:
       R_VERSION: '4.3.2'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
@@ -29,7 +29,10 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libicu-dev libcurl4-openssl-dev r-base
+          sudo apt-get install -y libicu-dev libcurl4-openssl-dev
+
+      - name: Record Ubuntu codename for the cache key
+        run: echo "UBUNTU_CODENAME=$(. /etc/os-release && echo "$VERSION_CODENAME")" >> "$GITHUB_ENV"
 
       - name: Query R package dependencies
         run: |
@@ -39,17 +42,19 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ env.R_VERSION }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ env.R_VERSION }}-1-
+          # The codename is part of the key because the cached packages are
+          # binaries built for one Ubuntu release: restoring them onto a newer
+          # ubuntu-latest image breaks them (e.g. xml2 linked to libxml2.so.2).
+          key: ${{ runner.os }}-${{ env.UBUNTU_CODENAME }}-${{ env.R_VERSION }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ env.UBUNTU_CODENAME }}-${{ env.R_VERSION }}-1-
 
       - name: Install R dependencies
         run: |
           install.packages("stringi", configure.args = "--with-icudt-system=yes")
           remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown")  # Removed "type = binary" as we're on Ubuntu
         shell: Rscript {0}
 
       - name: Set up Quarto
