@@ -71,17 +71,21 @@ pubs <- get_pubs()
 
 `r make_pub_list(pubs, "working")`
 
+## Policy Briefs
+
+`r make_pub_list(pubs, "policy_brief")`
+
 ## Magazine Publications
 
 `r make_pub_list(pubs, "magazine")`
 
+## Commentary and Analysis
+
+`r make_pub_list(pubs, "oped")`
+
 ## Books and Book Chapters
 
 `r make_pub_list(pubs, "book")`
-
-## Opinion Editorials
-
-`r make_pub_list(pubs, "oped")`
 
 ## Podcasts
 
@@ -105,6 +109,6 @@ pubs <- get_pubs()
 
 `r make_pub_list(pubs, "software")`
 
-## Media Coverage
+## Selected Media Coverage
 
 `r make_media_list()`
