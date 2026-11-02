@@ -17,30 +17,55 @@ This page contains information for students in the [Master of Science in Data An
 
 ## Frequently Asked Questions
 
-### What is the recommended sequence for full-time students?
+### What is the recommended sequence for full-time students who **start in the fall**?
 
-- Semester 1:
+- Semester 1 (Fall):
     - **CSCI 6444** _Introduction to Big Data and Analytics_
     - **EMSE 6765** _Data Analysis for Engineers and Scientists_
     - **EMSE 6574** _Programming for Analytics_
-- Semester 2:
+- Semester 2 (Spring):
     - **EMSE 6586** _Data Management Systems for Data Analytics_
     - First Required Track Course
         - CS Track: **CSCI 6212** _Design and Analysis of Algorithms_
         - EMSE Track: **EMSE 6575** _Applied Machine Learning for Analytics_
-      - **Elective**
-- Semester 3:
+    - **Elective**
+- Semester 3 (Fall):
     - Second Required Track Course
         - CS Track: **CSCI 6364** _Machine Learning_
         - EMSE Track: **EMSE 6577** _Data-Driven Policy_
     - **Elective**
     - **Elective**
-- Semester 4:
+- Semester 4 (Spring):
     - **SEAS 6402** _Data Analytics Capstone_
 
 This leaves your final semester light on course work, which many students find helpful as they apply for jobs and can focus their time on interview preparation.
 
-**NOTE**: The above schedule is optimized for students starting in a fall semester. If you begin in spring, EMSE 6574 is usually not offered. If you are in the CS track, we recommend taking CSCI 6212 instead, or if you are in the EMSE track you can pick an EMSE course without prerequisites to take as an elective.
+**NOTE**: The above schedule is optimized for students starting in a fall semester. If you begin in spring, see [below](#what-is-the-recommended-sequence-for-full-time-students-who-start-in-the-spring). 
+
+### What is the recommended sequence for full-time students who **start in the spring**?
+
+- Semester 1 (Spring):
+    - **EMSE 6586** _Data Management Systems for Data Analytics_
+    - **CSCI 6444** _Introduction to Big Data and Analytics_
+    - Track-specific option:
+        - CS Track: **CSCI 6212** _Design and Analysis of Algorithms_
+        - EMSE Track: **Elective**   
+- Semester 2 (Fall):
+    - **EMSE 6574** _Programming for Analytics_
+    - **EMSE 6765** _Data Analysis for Engineers and Scientists_
+    - Track-specific option:
+        - CS Track: **CSCI 6364** _Machine Learning_
+        - EMSE Track: **EMSE 6577** _Data-Driven Policy_
+- Semester 3 (Spring):
+    - **SEAS 6402** _Data Analytics Capstone_
+    - Track-specific option:
+        - CS Track: **Elective**
+        - EMSE Track: **EMSE 6575** _Applied Machine Learning for Analytics_
+    - **Elective**
+- Semester 4 (Fall):
+    - **Elective**
+
+**NOTE for CS track students**: In this sequence you take CSCI 6364 _Machine Learning_ in the same semester as EMSE 6765 _Data Analysis for Engineers and Scientists_, so you cannot use 6765 to satisfy the probability prerequisite for 6364 (see [this question](#do-i-need-to-take-csci-6362-probability-for-computer-science-as-a-prerequisite-for-csci-6364-machine-learning) below). If you start in the spring on the CS track, you should already have a statistics / probability course at the undergraduate level.
 
 ### What is the recommended sequence for part-time students taking 6 credits a semester?
 
