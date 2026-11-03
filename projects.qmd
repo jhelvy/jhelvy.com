@@ -62,18 +62,23 @@ listing:
       image: images/hex/vehicletrends.png
       categories: [R, Data Viz]
       description: Site showcasing trends in the U.S. automotive market, including depreciation, mileage accumulation, market concentration, and more.
+    - title: 2026 Global Oil Flows
+      path: https://jhelvy.github.io/2026-global-oil-flows/
+      image: images/global_oil_flows.png
+      categories: [R, D3, Data Viz]
+      description: Site tracking global crude oil flows from producers through shipping routes to consumers during the 2026 Strait of Hormuz closure.
     - title: Data Centers vs. States
       path: https://jhelvy.github.io/datacenter-states/
       image: images/datacenter_states.png
-      categories: [R, Data Viz]
+      categories: [R, OJS, Data Viz]
       description: Dashboard comparing the power consumption of select data centers to that of entire U.S. states.
     - title: POTUS Econ Scorecard
       path: https://jhelvy.github.io/potus-econ-scorecard/
       image: images/potus_econ_scorecard.png
       categories: [R, Data Viz]
       description: Interactive web app that compares economic performance indicators across different presidential administrations.
-    - title: Climate Indicators
-      path: https://climateindicators.us/
+    - title: Tracking Climate Impacts
+      path: https://trackingclimateimpacts.us/
       image: images/climateindicators.png
       categories: [R, Data Viz]
       description: Site tracking the indicators that show how a changing climate is affecting people and places across the United States.
