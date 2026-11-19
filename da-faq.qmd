@@ -85,6 +85,43 @@ This leaves your final semester light on course work, which many students find h
     - **Elective**
     - **SEAS 6402** _Data Analytics Capstone_
 
+### I'm a SEAS undergraduate. Can I finish the DA MS in a 5th year?
+
+Yes, through the [Accelerated Five-Year Degree Program](https://graduate.engineering.gwu.edu/accelerated-masters-program){target="_blank"}. You need to be conditionally admitted to the program while you are still an undergraduate, and you must graduate with your bachelor's degree with a GPA of 3.0 or higher.
+
+Finishing in one extra year works because some of your MS coursework can be completed while you are still an undergraduate:
+
+- **Double-counted courses**: You can double-count two (2) graduate courses (or three (3) for EMSE) taken as electives during your undergraduate degree. These courses count toward both your bachelor's and your MS. They must be eligible for graduate credit, and you must get them approved by the faculty advisor for your graduate major (for the EMSE track, that's [Dr. Helveston](mailto:jph@gwu.edu), for CS that's [Dr. Wood](mailto:timwood@gwu.edu)) before they will double-count. Double-counted courses must be designated as undergraduate courses (01) on your record in order for you to graduate with your bachelor's degree.
+- **Transfer course**: You can also transfer in one 3-credit graduate course that you took as an undergraduate, as long as it is _not_ counting toward your undergraduate degree.
+- **Senior year course load**: At least 51% of your course load each semester of your senior year must be undergraduate courses.
+
+The trick is to be strategic: use your double-count and transfer courses on courses that are _requirements_ in the DA MS, not general electives. If you do that, you can finish the remaining coursework in your 5th year by taking 3 to 4 courses each semester.
+
+### What is the recommended sequence for full-time students in the [Accelerated Five-Year Degree Program](https://graduate.engineering.gwu.edu/accelerated-masters-program){target="_blank"}?
+
+This sequence assumes you can double-count three courses and transfer one (four MS courses completed in your senior year). If you can only double-count two, move one of the senior year courses into your 5th year, which puts you at four courses in one semester.
+
+- Senior Year, Fall (undergraduate):
+    - **EMSE 6574** _Programming for Analytics_ (double-count)
+    - **EMSE 6765** _Data Analysis for Engineers and Scientists_ (double-count)
+- Senior Year, Spring (undergraduate):
+    - **EMSE 6586** _Data Management Systems for Data Analytics_ (double-count)
+    - **CSCI 6444** _Introduction to Big Data and Analytics_ (transfer)
+- 5th Year, Fall:
+    - Track course
+        - CS Track: **CSCI 6364** _Machine Learning_
+        - EMSE Track: **EMSE 6577** _Data-Driven Policy_
+    - **Elective**
+    - **Elective**
+- 5th Year, Spring:
+    - **SEAS 6402** _Data Analytics Capstone_
+    - Track course
+        - CS Track: **CSCI 6212** _Design and Analysis of Algorithms_
+        - EMSE Track: **EMSE 6575** _Applied Machine Learning for Analytics_
+    - **Elective**
+
+Getting the four required core courses done during your senior year means you are ready for the capstone in your final spring.
+
 ### Can you help me understand the overall degree requirements?
 
 The [full requirements in the Bulletin](http://bulletin.gwu.edu/engineering-applied-science/engineering-management-systems-engineering/data-analytics-ms/#requirementstext) are:
@@ -126,6 +163,10 @@ Yes, but you will need to fill out the [CS Department’s Registration help form
 ### Can the SEAS 6402 DA Capstone course only be taken in Spring semesters?
 
 The course is typically only offered in the spring, though some years we also offer a smaller fall section. You should not take 6402 until you have completed the other four required courses. If you start the program in Spring, then we recommend taking it in your 3rd semester (i.e., your second spring, a semester before graduation). If you are not able to take the course at the normal time, you should consult with your advisor **before** your last semester about completing the capstone as an independent project.
+
+### Can I complete a thesis?
+
+Yes. If you want to do the thesis option, you need to complete the [Contract for Thesis Option form](https://graduate.engineering.gwu.edu/sites/g/files/zaxdzs6391/files/2024-11/contract_for_thesis_option.pdf){target="_blank"}. Coordinate with [Dr. Helveston](mailto:jph@gwu.edu) to fill out the form before you begin your thesis work. Typically the thesis option is taken in place of taking the Capstone, and students who take this path usually register for an independent study with their faculty advisor instead of SEAS 6402.
 
 ### I want to register for a 6000 level course, but I'm restricted, how do I register?
 
